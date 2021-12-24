@@ -15,22 +15,18 @@ router.route('/:id').get((req, res) => {
   });
 
 router.route("/add").post((req, res) => {
-
     const user = {
         username : req.body.username,
         email : req.body.email,
         password : req.body.password
     }
-    
     const newUser = User(user)  ;
-
     newUser.save()
     .then(()=>res.json("User added!"))
     .catch(err => res.status(400).json("Error: "+err))
 })
 
 router.route("/update/:id").post((req,res)=>{
-
     let id = req.params.id
     User.findById(id)
     .then(user => {
