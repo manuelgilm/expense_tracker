@@ -1,16 +1,27 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const session = require("express-session")
+const passport = require("passport")
 
 require("dotenv").config();
+const uri = process.env.LOCALDB
+const secret_key = process.env.SECRET
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors())
 app.use(express.json())
+app.use(session({
+    secret:secret_key,
+    resave:false,
+    saveUninitialized:false
+}))
 
-const uri = process.env.ATLAS_URI
+app.use(passport.initialize())
+app.use(passport.session())
+
 mongoose.connect(uri)
 const connection = mongoose.connection
 connection.once("open", ()=>{
