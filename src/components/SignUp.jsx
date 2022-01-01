@@ -1,9 +1,9 @@
 import React,{useState} from "react"
+import axios from "axios"
 
 function SignUp(){
     const [newUser, setNewUser] = useState({
-        firstName:"",
-        lastName:"",
+        username:"",
         email:"",
         password:""
     })
@@ -21,7 +21,9 @@ function SignUp(){
     
     function onSubmit(event){
         event.preventDefault()
-        console.log(newUser)
+        axios.post("http://localhost:5000/users/register", newUser)
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
     }
 
     return (
@@ -29,13 +31,8 @@ function SignUp(){
             <h3>Sign Up</h3>
 
             <div className="form-group">
-                <label>First name</label>
-                <input type="text" className="form-control" placeholder="First name" value={newUser.firstName} name="firstName" onChange={handleChange} />
-            </div>
-
-            <div className="form-group">
-                <label>Last name</label>
-                <input type="text" className="form-control" placeholder="Last name" value={newUser.lastName} name="lastName" onChange={handleChange}/>
+                <label>Username</label>
+                <input type="text" className="form-control" placeholder="Username" value={newUser.username} name="username" onChange={handleChange} />
             </div>
 
             <div className="form-group">
