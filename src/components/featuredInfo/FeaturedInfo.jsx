@@ -8,7 +8,7 @@ export default function FeaturedInfo(props) {
         <div className='featuredItem'>
             <span className='featuredTitle'>{props.title}</span>
             <div className='featuredMoneyContainer'>
-                <span className='featuredMoney'>{"$"}+{props.amount}</span>
+                <span className='featuredMoney'>{"$"} {props.amount}</span>
                 <br/>
                 <span className='featuredMoneyRate'>{props.rate}
                     { props.trend === "down" ? <ArrowDownward className='featuredIcon negative'/> : <ArrowUpward className='featuredIcon positive'/>}
