@@ -1,9 +1,13 @@
 import React, { useState } from "react"
+import axios from "axios"
 import "../index.css"
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import { useNavigate } from 'react-router-dom';
+
 
 function SignIn(){
     const [user, setUser] = useState({
+        username:"",
         email:"",
         password:""
     })
@@ -17,15 +21,36 @@ function SignIn(){
         })
     }
 
+    const navigate = useNavigate();
+    const goHome = () => { 
+      navigate("/home");
+    }
+    const goSingUp = ()=>{
+        console.log(localStorage.getItem("token"))
+        navigate("/sign-up")
+    }
+
     function onSubmit(e){
         e.preventDefault()
-        console.log(user)
+        axios.post("http://localhost:5000/users/login", user)
+        .then(()=>{
+            goHome()
+        })
+        .catch(()=>{
+            goSingUp()
+        })
     }
 
     return (
         <form onSubmit={onSubmit}>
 
             <h3>Sign In</h3>
+
+            <div className="form-group">
+                <label>Username</label>
+                <input type="text" className="form-control" placeholder="Enter username" value={user.username} name="username" onChange={handleChange}></input>
+
+            </div>
 
             <div className="form-group">
                 <label>Email address</label>
