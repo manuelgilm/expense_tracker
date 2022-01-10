@@ -3,44 +3,20 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom"
-import SignIn from "./components/SignIn"
-import SignUp from "./components/SignUp"
-import Home from "./components/home/Home"
+import UserDashboard from "./pages/dashboard/UserDashboard";
+import SignIn from "./pages/login/SignIn";
+import SignUp from "./pages/login/SignUp"
 
 function App() {
   return (
     <React.StrictMode>
-
-    <Router>
-      <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-          <div className="container">
-            <Link className="navbar-brand" to={"/sign-in"}>Financial Tracker</Link>
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to={"/sign-in"}>Login</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Routes>
-              <Route path="/" exact element={<SignIn/>}/>
-              <Route path="/sign-in" element={<SignIn/>}/>
-              <Route path="/sign-up" element={<SignUp/>}/>
-              <Route path="/home" element={<Home/>}/>
-            </Routes>
-          </div>
-        </div>
-      </div>
+    <Router>      
+      <Routes>
+          <Route path="/" element={<SignIn />}/>
+          <Route path="/sign-up" element={<SignUp />}/>
+          <Route path="/dashboard" element={<UserDashboard />}/>
+      </Routes>
     </Router>
     </React.StrictMode>
   );
