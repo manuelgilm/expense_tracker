@@ -23,7 +23,7 @@ function SignIn(){
 
     const navigate = useNavigate();
     const goHome = () => { 
-      navigate("/dashboard");
+      navigate("/dashboard", {state:user});
     }
     const goSingUp = ()=>{
         navigate("/sign-up")

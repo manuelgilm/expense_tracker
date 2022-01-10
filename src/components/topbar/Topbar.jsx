@@ -1,8 +1,12 @@
 import React from 'react'
 import "./topbar.css"
 import {NotificationsNone, Language, Settings} from '@material-ui/icons'
+import {useLocation} from 'react-router-dom';
 
-export default function Topbar() {
+
+export default function Topbar(props) {
+    const location = useLocation();
+    const user = location.state
     return (
         <div className='topbar'>
             <div className='topbarWrapper'>
@@ -22,7 +26,7 @@ export default function Topbar() {
                         <Settings/>
                         <span className='topIconBagde'></span>
                     </div>
-                    <img src="https://pixy.org/src/480/4800346.jpg" alt="image" className='topAvatar'/>
+                    <img src={props.userImage} alt={user.username} className='topAvatar'/>
                 </div>
             </div>
         </div>

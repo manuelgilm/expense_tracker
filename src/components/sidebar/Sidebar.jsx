@@ -1,5 +1,12 @@
 import "./sidebar.css";
 import {Person, TrendingUpOutlined , Home, Create, Money, InfoSharp, AlarmAdd, TimelineSharp} from '@material-ui/icons';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom"
+import Category from "../../pages/categoryRegister/Category";
 
 function Sidebar() {
   return (
@@ -25,10 +32,12 @@ function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Expense Register</h3>
           <ul className="sidebarList">
-              <li className="sidebarListItem">
-                <Create className="sidebarIcon" />
-                Category
-              </li>
+            <Link to="/category">
+                <li className="sidebarListItem">
+                  <Create className="sidebarIcon" />
+                  Category
+                </li>
+            </Link>
               <li className="sidebarListItem">
                 <Money className="sidebarIcon" />
                 Expenses
@@ -53,6 +62,9 @@ function Sidebar() {
           </ul>
         </div>
       </div>
+        <Routes>
+          <Route path="/category" element={<Category/>}/>
+        </Routes>
     </div>
   );
 }
