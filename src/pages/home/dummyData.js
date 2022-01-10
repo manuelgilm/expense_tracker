@@ -49,3 +49,41 @@ export const data = [
         income:Math.random()*2,
         expense:Math.random()*2    },
 ]
+
+export const latestTransactions = [
+    {
+        description:"A description related to the last expense",
+        amount:"Amount of money related to the last expense",
+        date:"Date related to the expense",
+        categoryName:"Housing",
+        color:"yellow"
+    },
+    {
+        description:"A description related to the last expense",
+        amount:"Amount of money related to the last expense",
+        date:"Date related to the expense",
+        categoryName:"Car",
+        color:"orange"
+    },
+    {
+        description:"A description related to the last expense",
+        amount:"Amount of money related to the last expense",
+        date:"Date related to the expense",
+        categoryName:"Education",
+        color:"blue"
+    },
+    {
+        description:"A description related to the last expense",
+        amount:"Amount of money related to the last expense",
+        date:"Date related to the expense",
+        categoryName:"Housing",
+        color:"yellow"
+    },
+    {
+        description:"A description related to the last expense",
+        amount:"Amount of money related to the last expense",
+        date:"Date related to the expense",
+        categoryName:"Something else",
+        color:"red"
+    },
+]
