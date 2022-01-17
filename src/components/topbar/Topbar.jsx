@@ -26,7 +26,7 @@ export default function Topbar(props) {
                         <Settings/>
                         <span className='topIconBagde'></span>
                     </div>
-                    <img src={props.userImage} alt={user.username} className='topAvatar'/>
+                    {/* <img src={props.userImage} alt={user.username} className='topAvatar'/> */}
                 </div>
             </div>
         </div>

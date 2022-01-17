@@ -6,7 +6,6 @@ import {
   Route,
   Link
 } from "react-router-dom"
-import Category from "../../pages/categoryRegister/Category";
 
 function Sidebar() {
   return (
@@ -15,18 +14,24 @@ function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
+          <Link to="/dashboard">
             <li className="sidebarListItem active">
               <Home className="sidebarIcon" />
               Home
             </li>
+          </Link>
+          <Link to="/analytics">
             <li className="sidebarListItem">
               <TrendingUpOutlined  className="sidebarIcon" />
               Analytics
             </li>
-            <li className="sidebarListItem">
-              <Person className="sidebarIcon" />
-              User
-            </li>
+          </Link>
+            <Link to="/user">
+              <li className="sidebarListItem">
+                <Person className="sidebarIcon" />
+                User
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -62,9 +67,6 @@ function Sidebar() {
           </ul>
         </div>
       </div>
-        <Routes>
-          <Route path="/category" element={<Category/>}/>
-        </Routes>
     </div>
   );
 }
