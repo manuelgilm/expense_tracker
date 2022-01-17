@@ -3,9 +3,11 @@ import axios from "axios"
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../../index.css"
 import { useNavigate } from 'react-router-dom';
-
+import { useContext } from "react";
+import { userContext } from "../../userContext";
 
 function SignIn(){
+    const { _ , setUserContext } = useContext(userContext);
     const [user, setUser] = useState({
         username:"",
         email:"",
@@ -23,7 +25,8 @@ function SignIn(){
 
     const navigate = useNavigate();
     const goHome = () => { 
-      navigate("/dashboard", {state:user});
+      setUserContext(user)
+      navigate("/dashboard");
     }
     const goSingUp = ()=>{
         navigate("/sign-up")

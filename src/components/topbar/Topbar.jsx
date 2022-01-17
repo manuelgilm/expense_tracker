@@ -1,12 +1,12 @@
 import React from 'react'
 import "./topbar.css"
 import {NotificationsNone, Language, Settings} from '@material-ui/icons'
-import {useLocation} from 'react-router-dom';
+import { useContext } from 'react'
+import { userContext } from '../../userContext'
 
 
 export default function Topbar(props) {
-    const location = useLocation();
-    const user = location.state
+    const {user, setUserContext} = useContext(userContext)
     return (
         <div className='topbar'>
             <div className='topbarWrapper'>
@@ -26,7 +26,7 @@ export default function Topbar(props) {
                         <Settings/>
                         <span className='topIconBagde'></span>
                     </div>
-                    {/* <img src={props.userImage} alt={user.username} className='topAvatar'/> */}
+                    <img src={props.userImage} alt={user.username} className='topAvatar'/>
                 </div>
             </div>
         </div>

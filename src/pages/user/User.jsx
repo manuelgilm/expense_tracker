@@ -1,12 +1,13 @@
 import React from 'react'
 import "./user.css"
-import "../../App.css"
-export default function User() {
 
+export default function User() {
     return (
         <div className='user'>
-            User page
+            <h1>
+                User Page
+            </h1>
+            
         </div>
     )
 }
-
